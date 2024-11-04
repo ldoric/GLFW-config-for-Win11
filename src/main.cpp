@@ -19,29 +19,29 @@ int main()
     Model model("../res/models/rectangle.obj");
     Shader shader("../res/shaders/vShader.glsl", "../res/shaders/fShader.glsl");
     Texture tex("../res/textures/container.jpg");
-//ZDK 3.    
-    //Texture tex("../res/textures/texture.jpg");
 
-/*
     Renderer render;
-//ZDK 1.
-    int offset_location = glGetUniformLocation(shader.GetID(), "offset");
-    float x_offset = 0.5;
-    float y_offset = 0.1;
 
-//ZDK 2.
+    int offset_location = glGetUniformLocation(shader.GetID(), "offset");
+    float x_offset = 0.0;
+    float y_offset = 0.0;
+
+
+    //go to /res/shaders/vShader.glsl to apply
     int color_location = glGetUniformLocation(shader.GetID(), "color");
-    float r = 0.1;
-    float g = 0.3;
-    float b = 0.2;
-    
+    float r = 0.0;
+    float g = 0.0;
+    float b = 0.0;
+    //black
+
     while (!window.isClosed())
     {
         window.ProcessInput();
         render.Clear();
-//Send Offset
+
+        //Send Offset
         glUniform2f(offset_location, x_offset, y_offset);
-//Send Color
+        //Send Color
         glUniform3f(color_location, r, g, b);
         model.Draw(shader, tex);
 
@@ -51,20 +51,6 @@ int main()
     window.CloseWindow();
 
     return 0;
-    */
 
-     Renderer render;
-    while (!window.isClosed())
-    {
-        window.ProcessInput();
-        render.Clear();
-
-        model.Draw(shader, tex);
-
-        window.SwapAndPoll();
-    }
-
-    window.CloseWindow();
-
-    return 0;
+    
 }

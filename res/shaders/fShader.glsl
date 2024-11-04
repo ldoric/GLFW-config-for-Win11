@@ -11,7 +11,7 @@ uniform vec3 color;
 
 void main()
 {
-//ZDK 2.
+	//this will change the color of the rectangle
 	//rectangle_color=vec4(color,1.0);
 	fColor=texture(tex, TexCord);
 }
