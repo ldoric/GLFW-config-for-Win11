@@ -25,7 +25,7 @@ int main()
     float x_offset = 0.0;
     float y_offset = 0.0;
 
-
+    //for coloring the whole obj model
     //go to /res/shaders/vShader.glsl to apply
     /*
     int color_location = glGetUniformLocation(shader.GetID(), "color");
