@@ -6,7 +6,6 @@
 #include "Model/Model.h"
 #include "Shader/Shader.h"
 #include "Texture/Texture.h"
-
 #include "../src/vendor/glm/glm.hpp"
 
 const unsigned int SCR_WIDTH = 800;
@@ -18,7 +17,7 @@ int main()
   
     Model model("../res/models/rectangle.obj");
     Shader shader("../res/shaders/vShader.glsl", "../res/shaders/fShader.glsl");
-    Texture tex("../res/textures/container.jpg");
+    Texture tex("../res/textures/yellow.jpg");
 
     Renderer render;
 
@@ -28,10 +27,12 @@ int main()
 
 
     //go to /res/shaders/vShader.glsl to apply
+    /*
     int color_location = glGetUniformLocation(shader.GetID(), "color");
     float r = 0.0;
     float g = 0.0;
     float b = 0.0;
+    */
     //black
 
     while (!window.isClosed())
@@ -42,7 +43,7 @@ int main()
         //Send Offset
         glUniform2f(offset_location, x_offset, y_offset);
         //Send Color
-        glUniform3f(color_location, r, g, b);
+        //glUniform3f(color_location, r, g, b);
         model.Draw(shader, tex);
 
         window.SwapAndPoll();

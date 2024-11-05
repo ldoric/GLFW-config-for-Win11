@@ -1,17 +1,18 @@
 #version 330 core
 
-in vec3 normals;
-in vec2 TexCord;
+in vec3 vertexColor; // ulaz iz vertex shadera
+in vec2 TexCord;     // teksturne koordinate
 
 out vec4 fColor;
-out vec4 rectangle_color;
 
 uniform sampler2D tex;
-uniform vec3 color;
 
 void main()
 {
-	//this will change the color of the rectangle
-	//rectangle_color=vec4(color,1.0);
-	fColor=texture(tex, TexCord);
+    // Kombiniramo boju temeljenu na poziciji s teksturom
+    vec4 textureColor = texture(tex, TexCord);
+	
+    //fColor = vec4(vertexColor, 1.0) * textureColor; // multipliciramo boje
+	//comment this out for rgb
+	fColor = textureColor;
 }
