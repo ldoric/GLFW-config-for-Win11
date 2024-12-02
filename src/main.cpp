@@ -48,10 +48,6 @@ int main()
 
     glm::vec3 color(1.0f, 1.0f, 1.0f);
 
-    // 3D transformations
-    // mat_model = glm::rotate(mat_model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-
-
     while (!window.isClosed())
     {
         window.ProcessInput();
