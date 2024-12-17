@@ -23,7 +23,8 @@ glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / 
 glm::vec3 cubePositions[] = {
     glm::vec3(-2.0f, 0.0f, 0.0f),
     glm::vec3(0.0f, 0.0f, 0.0f),
-    glm::vec3(1.0f, 0.0f, 0.0f),
+    glm::vec3(1.0f, -1.0f, 0.0f),
+    glm::vec3(-1.0f, -1.0f, 0.0f),
     glm::vec3(2.0f, 0.0f, 0.0f)
 };
 
@@ -39,12 +40,14 @@ glm::vec3 objectColor[] = {
     glm::vec3(1.0f, 0.5f, 0.31f),
     glm::vec3(0.5f, 0.5f, 0.0f),
     glm::vec3(0.0f, 0.2f, 1.0f),
+    glm::vec3(0.0f, 0.3f, 1.0f),
     glm::vec3(1.0f, 0.0f, 0.7f)
 };
 
 float specularStrength[] = {
     1.0f,
     0.3f,
+    0.9f,
     0.9f,
     0.3f
 };
@@ -56,7 +59,7 @@ int main()
 
     glEnable(GL_DEPTH_TEST);
 
-    Model model("../res/models/kocka.obj");
+    Model model("../res/models/santa.obj");
     Model lightModel("../res/models/kocka.obj");
     Shader shader("../res/shaders/vShader.glsl", "../res/shaders/fShader.glsl");
     Texture tex("../res/textures/container.jpg");
@@ -103,11 +106,11 @@ int main()
         
         lightModel.Draw(shader, tex);
 
-        for (unsigned int i = 0; i < 4; i++)
+        for (unsigned int i = 0; i < 5; i++)
         {
             glm::mat4 mat_model = glm::mat4(1.0f);
             mat_model = glm::translate(mat_model, cubePositions[i]);
-            mat_model = glm::scale(mat_model, glm::vec3(0.5f));
+            mat_model = glm::scale(mat_model, glm::vec3(0.005f));
     
             shader.SetUniform4x4("model", mat_model);
             shader.SetUniformVec3("objectColor", objectColor[i]);
